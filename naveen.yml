@@ -1,0 +1,12 @@
+---
+- name: ansible
+  hosts: all
+  become: true
+  tasks:
+    - name: install tree
+      apt:
+        name: "{{a}}"
+        state: "{{b}}"
+        update_cache: "{{c}}"
+      with_items:
+        - {a: tree, b: present, c: yes}
